@@ -1,0 +1,161 @@
+article.oil-hydraulic,
+article.motornoe-maslo,
+article.oil-compressor,
+article.oil-reductor,
+article.oil-plain,
+article.oil-transmission {
+  .content{
+    font-family: Oswald, sans-serif;
+    h1{
+      font-size: 60px;
+      max-width: 78%;
+    }
+    font-size: 20px;
+    &>div.main-table, &>div.text-description {
+      margin: 40px 0 10px 0;
+    }
+  }
+}
+
+.main-table,.pack-tds-table,.text-description,.chars-table {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+
+  padding:15px;
+  &>div{padding:15px;}
+  min-height: 31vmax;
+}
+
+.pack-tds-table,.text-description {
+  background: $lightgrey;
+  border-radius: 10px;
+  padding: 20px;
+  @media #{$wide},#{$normal},#{$tablet} {
+    border-left: none;
+  }
+}
+
+.main-table {
+  border:1px solid $green;
+  border-radius: 10px;
+  &>div { width:50%;}
+  &>div:nth-child(2) { text-align: center}
+  &>div:nth-child(6) { width:100%;}
+  .plain_text{
+    width:100%;
+    text-align: center;
+    background: lightgreen;
+  }
+  .mt-maslo-api {
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: space-evenly;
+    span:nth-child(1){width:400px}
+  }
+  .mt-hydr-maslo-iso, .mt-hydr-maslo-din,/*гидравлика*/
+  .mt-compr-maslo-din, .mt-compr-maslo-iso,/*компрессорные*/
+  .mt-maslo-acea, .mt-maslo-api, .mt-maslo-sae,/*моторные*/
+  .mt-red-maslo-iso, .mt-red-maslo-din,/*редукторноые*/
+  .mt-plain-maslo-standart/*индустриальные*/ {
+    margin-top: 15px;
+    line-height: 35px;
+    text-align: center;
+    span.specifications {
+      font-size: 35px;
+      font-weight: bold;
+    }
+    span.glyphicon-info-sign{
+      vertical-align: top;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+.chars-table {
+  &>div {padding:5px; width:100%; display: inherit; vertical-align: middle}
+  &>div:nth-child(odd) { background: lightgrey}
+  &>div:nth-child(even) { background: lightgreen}
+  &>div:first-child { border-bottom: 1px solid $green; background: none}
+
+  &>div>div:nth-child(1) {width: 33%; text-align: left}
+  &>div>div:nth-child(2){width: 33%; text-align: center}
+  &>div>div:nth-child(3){width: 66%; text-align: right}
+}
+
+.order-btn {
+  position: absolute;
+  top: 40px;
+  right: 15px;
+  @media #{$wide}{right: 15px; top: 50px;}
+  @media #{$normal}{right: 15px; top: 40px;}
+  @media #{$tablet}{right: 15px; top: 40px;}
+  width: 20%;
+  background: $yellow;
+  color: $green;
+  font-family: Oswald;
+  font-size: 40px;
+  line-height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 10px;
+  z-index: 99;
+  @media #{$mobile}{
+  top: calc(30vw + 50px);
+    margin-top: 20px;
+  font-size: 30px;
+  }
+  @media #{$tablet}{
+    font-size: 30px;
+  }
+  &:hover{
+    cursor: pointer;
+    box-shadow: 0 0 20px $yellow;
+    color: $white;
+  }
+}
+.mt-maslo-tds {
+  /*Убираем базовую рамку вокруг ссылки на файл*/
+  .file-link, .file-icon, .file-size, .file > span:last-child, .file > span:first-child {
+    border-top :none;
+    border-bottom : none;
+    border-left : none;
+    border-right: none;
+  }
+  /**/
+
+
+}
+
+/*РАЗМЕТКА ОСНОВНОЙ ТАБЛИЦЫ ИНДУСТРИАЛЬНЫХ МАСЕЛ*/
+
+article.oil-plain{
+
+  .main-table {
+    display: flex;
+    flex-direction: row;
+    align-items: inherit;
+    flex-wrap: wrap;
+    border:1px solid $green;
+    /*width:415px;*/
+    padding:5px;
+    &>div { padding:5px; /*width:400px*/;}
+    &>div:nth-child(1) { /*width:200px*/;}
+    &>div:nth-child(2) { /*width:200px*/;}
+
+    .plain_text{
+      /*width:400px;*/
+      text-align: center;
+      background: lightgreen;
+    }
+
+  }
+
+
+}
+
+//TODO: Создать аккаунты в FAcebook и Twitter  и обновить OPENGRAPH теги
+//TODO:Make all tpls like hydraulic.
+//TODO:Finish with metas.
+//TODO:Include all Bechem

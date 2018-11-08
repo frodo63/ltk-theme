@@ -1,0 +1,214 @@
+// Default variables.
+@import "default-variables";
+
+// Bootstrap Framework.
+@import '../bootstrap/assets/stylesheets/bootstrap';
+
+// Base-theme overrides.
+@import 'overrides';
+
+
+
+$green: #17460F;
+$yellow: #FBBA00;
+$lightyellow: #FCD973;
+$black: #000000;
+$white: #FFFFFF;
+$blue: #337ab7;
+$lightgrey: #d3d3d366;
+
+/*Шрифт для тултипов*/
+.tooltip-inner {
+  padding: 3px 8px;
+  color: $green;
+  text-align: center;
+  background-color: #FBBA00;
+  border-radius: $border-radius-base;
+  border: 1px solid $green;
+  font-weight: 400;
+  font-family: Oswald, sans-serif;
+  font-size: 15px;
+}
+
+//Manual Breakpoints
+$mobile: "screen and (min-width: 0px) and (max-width: 767px)";        /*0     -   767*/
+$tablet: "screen and (min-width: 768px) and (max-width: 991px)";      /*768   -   991*/
+$normal: "screen and (min-width: 992px) and (max-width: 1199px)";     /*992   -   1199*/
+$wide: "screen and (min-width: 1200px)";                              /*1200  -   extra large*/
+
+@import 'pages/pages';
+@import 'blocks/blocks';
+@import 'component/frontpage_paragraphs';
+@import 'component/sidemenu';
+@import 'component/product_filters';
+@import 'component/footer';
+@import 'component/masla';
+@import 'component/var_pages';
+@import 'component/add_request';
+@import 'component/header/header';
+@import 'component/header/header_mobile';
+@import 'component/header/header_tablet';
+@import 'component/header/header_normal';
+@import 'component/header/header_wide';
+
+/*BREAKPOINT DETECTION SYSTEM*/
+/*jquery detects the visible element and sees the breakpoint*/
+@media #{$mobile}{
+  .device-tablet, .device-normal, .device-wide {display: none}
+  .device-mobile {display: block}
+}
+@media #{$tablet}{
+  .device-mobile, .device-normal, .device-wide {display: none}
+  .device-tablet {display: block}
+}
+@media #{$normal}{
+  .device-mobile, .device-tablet, .device-wide {display: none}
+  .device-normal {display: block}
+}
+@media #{$wide}{
+  .device-mobile, .device-tablet, .device-normal {display: none}
+  .device-wide {display: block}
+}
+/*BREAKPOINT DETECTION SYSTEM END*/
+
+.main-container {
+  position: relative;
+  /*left: 40px;*/
+}
+
+body {
+  background: $white;
+  color: $green;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  a{
+    color: $green;
+    &:hover {color: $green;}
+  }
+
+  /*РАЗМЕТКА ГЛАВНЫХ ЭЛЕМЕНТОВ*/
+  .row {
+    margin:0;
+  }
+
+  &.body-minimized {
+    @media #{$mobile}{
+      margin-top:0;
+      .region-highlighted {
+        top: 50px;
+        height: 35px;
+      }
+    }
+    @media #{$tablet}{
+      margin-top: 40px;
+      .region-highlighted {
+        top: 50px;
+        height: 35px;
+      }
+    }
+    @media #{$normal}{
+      margin-top: 70px;
+      .region-highlighted {
+        top: 50px;
+        height: 35px;
+      }
+    }
+    @media #{$wide}{
+      margin-top: 100px;
+      .region-highlighted {
+        top: 50px;
+        height: 35px;
+        z-index:100;
+      }
+    }
+  }
+
+  @media #{$mobile}{margin-top:0}
+  @media #{$tablet}{margin-top: 120px}
+  @media #{$normal}{margin-top: 150px}
+  @media #{$wide}{margin-top: 189px}
+
+  /*КРОШКИ базовые параметры*/
+  .region-highlighted {
+    z-index: 1;
+    position: fixed;
+    left: 40px;
+    width: calc(100% - 40px);/*Ширина - расчет от максимума минус 40px*/
+
+    &.active{
+      left: 232px;
+      width: calc(100% - 232px);
+    }
+
+    @media #{$mobile}{
+      top: 30vw;
+      &.minimized{
+        top: 23vw;
+      }
+      left: 0px;
+      width: 100%;
+      &.active{
+        left: 0px;
+        width: 100%;
+      }
+    }
+    @media #{$tablet}{
+      height: 30px;
+      top: 120px;
+      &.minimized{
+        top: 50px;
+      }
+    }
+    @media #{$normal}{
+      height: 40px;
+      top: 150px;
+      &.minimized{
+        top: 50px;
+      }
+    }
+    @media #{$wide}{
+      top: 189px;
+      height: 50px;
+      &.minimized{
+        top: 50px;
+      }
+    }
+  }
+  /*ЗАКОНЧИЛИСЬ КРОШКИ*/
+
+
+
+
+  /*ЗАКОНЧИЛАСЬ РАЗМЕТКА ГЛАВНЫХ ЭЛЕМЕНТОВ*/
+
+}
+/*h1, h2, h3, h4, h5 {
+  color: $black;
+}*/
+
+/**/
+
+/*Стиль для запрета копирования*/
+.no-copy {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+.breadcrumb {
+  padding: 14px 15px;
+  @media #{$tablet}{height: 40px}
+  @media #{$normal}{height: 40px}
+  @media #{$wide}{height: 50px}
+
+}
+
+.region-content {
+  padding-top: 50px;
+  @media #{$mobile}{
+    padding-top: calc(30vw + 50px);
+  }
+}
+
+

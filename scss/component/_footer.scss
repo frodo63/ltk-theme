@@ -1,0 +1,82 @@
+footer.footer {
+  min-height: 350px;
+  bottom: 0;
+  left: 40px;
+  font-family: 'Oswald', sans-serif;
+  font-size:20px;
+  font-weight: 400;
+  width: calc(100% - 40px);
+  margin-left: 40px;
+  margin-top: 50px;
+  background: $yellow;
+  color: $green;
+  @media #{$mobile}{
+    left: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 50px;
+    font-size: 4vw;
+  }
+
+  a, a:hover, a:visited{
+    color: $green;
+  }
+  #block-shortfaq .panel-heading, #block-shortfaq .panel-body, #block-shortfaq .panel-default {
+    background-color: $yellow;
+    border-top:none;
+    border:none;
+    @media #{$mobile}{
+      padding: 10px 0px;
+      & a, & p{
+        font-size: 4vw;
+      }
+    }
+
+  }
+  #block-shortfaq .panel-body, #block-shortfaq .panel-body a  {
+    color: $green;
+  }
+
+  .region.region-footer>nav, .region.region-footer>section{
+    float: left;
+    text-align: center;
+  }
+  #block-ltk-footer{
+    li a{
+      border-radius: 10px;
+      @media #{$mobile}{
+        padding: 10px 0px;
+      }
+    }
+  }
+  #block-ltk-footer{
+    width: 25%;
+    @media #{$mobile}{
+      width: 50%;
+    }
+
+  }
+  #block-contactsfooter{
+    width: 25%;
+    @media #{$mobile}{
+      width: 50%;
+      margin-top: 10px;
+    }
+  }
+  #block-shortfaq{
+    width: 50%;
+    @media #{$mobile}{
+      width: 100%;
+    }
+    .panel-body{
+      background: $white;
+      border-radius: 10px;
+    }
+  }
+  .region.region-footer>nav{
+    text-transform: uppercase;
+  }
+  .region.region-footer>section:last-child{
+    clear: right;
+  }
+}

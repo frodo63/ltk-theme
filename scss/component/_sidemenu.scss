@@ -1,0 +1,268 @@
+.side-menu--wrap {
+  background: $yellow;
+  position: fixed;
+  left: 0px;
+  width: 40px;
+  z-index: 500;
+  border-right: 1px solid $green;
+  @media #{$mobile}{
+    width: 16vw;
+    top: 6vw;
+    right: 5vw;
+    left: unset;
+    padding: 0;
+    margin: 0;
+    border-right: none;
+    &.minimized{}
+  }
+
+  /*Шрифты и цвета текста*/
+  h2, a, .side-menu-burger--name {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /*Меню БУРГЕР - обертка*/
+  .side-menu-burger-link {
+    height: 166px;
+    cursor: pointer;
+    &:hover{
+      .side-menu-burger--icon span {background: $white}
+      .side-menu-burger--name {color: $white}
+    }
+    @media #{$mobile}{
+      height: unset;
+    }
+  }
+  /*НАДПИСЬ МЕНЮ*/
+  .side-menu-burger--name {
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    font-size: 20px;
+    margin-top: 42px;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    @media #{$mobile}{
+      display: none;
+    }
+  }
+  /*БЛОК С БУРГЕР ИКОНКОЙ*/
+  .side-menu-burger--icon{
+    margin: 20px 10px 40px 10px;
+    @media #{$mobile}{margin: 3vw}
+    span {
+      border-radius: 2px;
+      -webkit-transition: all .5s ease-out;
+      transition: all .5s ease-out;
+      height: 2px;
+      width: 20px;
+      background: $green;
+      margin-bottom: 4px;
+      display: block;
+      box-sizing: border-box;
+      @media #{$mobile}{
+        height: calc( 3 * 100vw / 360 );
+        width: 10vw;
+        &:nth-child(1){margin: 3vw 0 2vw 0}
+        &:nth-child(2){margin: 2vw 0 2vw 0}
+        &:nth-child(3){margin: 2vw 0 3vw 0}
+      }
+    }
+    &.crossed{
+      span{
+        width: 23px;
+        @media #{$mobile}{
+          width: 10vw;
+        }
+      }
+      @media #{$wide},#{$normal},#{$tablet} {
+        span:nth-child(1){
+          transform: translate(-2px,6px) rotate(45deg);
+          -webkit-transform: translate(-2px,6px) rotate(45deg);
+          -ms-transform: translate(-2px,6px) rotate(45deg);
+          -moz-transform: translate(-2px,6px) rotate(45deg);
+          -o-transform: translate(-2px,6px) rotate(45deg);
+        }
+        span:nth-child(2){
+          transform: translate(-2px) rotate(-45deg);
+          -webkit-transform: translate(-2px) rotate(-45deg);
+          -ms-transform: translate(-2px) rotate(-45deg);
+          -moz-transform: translate(-2px) rotate(-45deg);
+          -o-transform: translate(-2px) rotate(-45deg);
+        }
+        span:nth-child(3){
+          opacity: 0;
+        }
+      }
+
+      @media #{$mobile}{
+        span:nth-child(1){
+          transform: translate(calc( 4 * 100vw / 360 ),calc( -2 * 100vw / 360 )) rotate(45deg);
+          -webkit-transform: translate(calc( 4 * 100vw / 360 ),calc( -2 * 100vw / 360 )) rotate(45deg);
+          -ms-transform: translate(calc( 4 * 100vw / 360 ),calc( -2 * 100vw / 360 )) rotate(45deg);
+          -moz-transform: translate(calc( 4 * 100vw / 360 ),calc( -2 * 100vw / 360 )) rotate(45deg);
+          -o-transform: translate(calc( 4 * 100vw / 360 ),calc( -2 * 100vw / 360 )) rotate(45deg);
+          transform-origin: left center;
+          -webkit-transform-origin: left center;
+          -ms-transform-origin: left center;
+          -moz-transform-origin: left center;
+          -o-transform-origin: left center;
+        }
+        span:nth-child(2){
+          opacity: 0;
+        }
+        span:nth-child(3){
+          transform: translate(calc( 5 * 100vw / 360 ), calc( 3 * 100vw / 360 )) rotate(-45deg);
+          -webkit-transform: translate(calc( 5 * 100vw / 360 ), calc( 3 * 100vw / 360 )) rotate(-45deg);
+          -ms-transform: translate(calc( 5 * 100vw / 360 ), calc( 3 * 100vw / 360 )) rotate(-45deg);
+          -moz-transform: translate(calc( 5 * 100vw / 360 ), calc( 3 * 100vw / 360 )) rotate(-45deg);
+          -o-transform: translate(calc( 5 * 100vw / 360 ), calc( 3 * 100vw / 360 )) rotate(-45deg);
+          transform-origin: left center;
+          -webkit-transform-origin: left center;
+          -ms-transform-origin: left center;
+          -moz-transform-origin: left center;
+          -o-transform-origin: left center;
+        }
+      }
+    }
+  }
+}
+/*НАЧАЛСЯ Расчет высоты РАЗНЫХ боковых меню*/
+.region-sidemenu, .side-menu--wrap{
+  /*Первоначально объявляем переменную*/
+  $htop:100px;
+  /*В зависимости от брекета и статуса минимайзда задается значени новое прееменной*/
+  @media #{$wide}{
+    $htop: 189px;
+    top: $htop;
+    height: calc(100% - #{$htop});
+    &.minimized{
+      $htop: 50px;
+      top: $htop;
+      height: calc(100% - #{$htop});}
+  }
+  @media #{$normal}{
+    $htop: 150px;
+    top: $htop;
+    height: calc(100% - #{$htop});
+    &.minimized{
+      $htop: 50px;
+      top: $htop;
+      height: calc(100% - #{$htop});
+    }
+  }
+  @media #{$tablet}{
+    $htop: 120px;
+    top: $htop;
+    height: calc(100% - #{$htop});
+    &.minimized{
+      $htop: 50px;
+      top: $htop;
+      height: calc(100% - #{$htop});
+    }
+  }
+}
+.region-sidemenu{
+  @media #{$mobile}{
+    $htop:30vw;
+    top: $htop;
+    height: calc(100% - #{$htop});
+    &.minimized{
+      $htop: 23vw;
+      top: $htop;
+      height: calc(100% - #{$htop});
+    }
+  }
+}
+/*ЗАКОНЧИЛСЯ Расчет высоты бокового меню*/
+
+
+  /*МЕНЮ КАТЕГОРИЙ ПРОДУКЦИИ (ВЫЕЗЖАЮЩЕЕ)*/
+  .region-sidemenu{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    padding: 10px;
+    /*Добавлено 24 сент 18*/
+    width: 192px;
+    @media #{$mobile}{width:70vw}
+    background: white;
+    border-right: 1px solid black;
+    z-index: 500;
+    /**/
+
+
+    //Изначально - скрыто слева экрана
+    left: -255px;
+    @media #{$mobile}{left:-100vw}
+    //
+    transition: left .5s ease-out;
+    -webkit-transition: left .5s ease-out;
+    -ms-transition: left .5s ease-out;
+    -o-transition: left .5s ease-out;
+    -moz-transition: left .5s ease-out;
+    position: fixed;
+    nav ul.nav {
+      display: none;//Менюшки изначально закрыты
+      max-height: 59vh;
+      overflow-y: overlay;
+      li {
+        a{
+          padding:5px;
+          &:hover{background: $yellow;}
+        }
+      }
+    }
+    //А главное меню изначально открыто
+    #block-ltk-main-menu ul.nav, #block-tipmasla ul.nav{
+      display: block;
+    }
+    h2, a{
+      cursor: pointer;
+      color: $green;
+      width: 150px;
+    }
+    h2 {
+      display: inline-block;
+
+      font-size: 20px;
+      @media #{$mobile}{
+        font-size: 5vw;
+        line-height: 6vw;
+        width: 100%;
+      }
+    }
+    h2 span{
+      pointer-events: none;
+      color: $yellow;
+    }
+    a {
+      font-size: 15px;
+      @media #{$mobile}{
+        font-size: 4vw;
+        line-height: 5vw;
+      }
+    }
+    .glyphicon-menu-right {
+      font-size: 20px;
+    }
+    a:hover{
+      background: $yellow;
+      text-decoration: underline;
+    }
+    &.active {
+      left: 40px;
+      @media #{$mobile}{
+        left: 0px;
+      }
+    }
+  }
+  /*ЗАКОНЧИЛОСЬ МЕНЮ КАТЕГОРИЙ ПРОДУКЦИИ (ВЫЕЗЖАЮЩЕЕ)*/
+
+
+
+
